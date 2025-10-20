@@ -1,0 +1,11 @@
+// ==UserScript==
+// @name         Kumin Mint - cs107
+// @author       GOAT
+// @version      2.0
+// @updateURL    https://raw.githubusercontent.com/Wwwwscripts/cs107/main/kumin_mint_cs107.meta.js
+// @downloadURL  https://raw.githubusercontent.com/Wwwwscripts/cs107/main/kumin_mint_cs107.user.js
+// @icon         https://raw.githubusercontent.com/Wwwwscripts/share/refs/heads/main/W.png
+// @include      *:/*/*
+// @exclude      https://*/*screen=market&mode=exchange*
+// @grant        none
+// ==/UserScript==
