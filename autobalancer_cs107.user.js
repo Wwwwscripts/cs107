@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Auto Balancer
+// @name         Auto Balancer - cs107
 // @author       Wwww
 // @version      2.0
 // @updateURL    https://raw.githubusercontent.com/Wwwwscripts/cs107/main/autobalancer_cs107.meta.js
