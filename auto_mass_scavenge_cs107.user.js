@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Auto Mass Scavenge
+// @name         Auto Mass Scavenge - cs107
 // @author       Wwww
 // @version      2.0
 // @updateURL    https://raw.githubusercontent.com/Wwwwscripts/cs107/main/auto_mass_scavenge_cs107.meta.js
