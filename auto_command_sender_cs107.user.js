@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Auto Command sender
+// @name         Auto Command sender - cs107
 // @author       GOAT
 // @version      2.0
 // @updateURL    https://raw.githubusercontent.com/Wwwwscripts/cs107/main/auto_command_sender_cs107.meta.js
