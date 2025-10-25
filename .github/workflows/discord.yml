@@ -1,0 +1,51 @@
+name: Discord Notify
+
+on:
+  push:
+    branches: ["*"]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+        
+      - name: Send commit message to Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "Error: DISCORD_WEBHOOK secret is not set!"
+            exit 1
+          fi
+          
+          COMMIT_TITLE=$(git log -1 --pretty=%s | sed 's/"/\\"/g' | sed "s/'/\\'/g")
+          COMMIT_BODY=$(git log -1 --pretty=%b | sed 's/"/\\"/g' | sed "s/'/\\'/g" | tr '\n' ' ')
+          AUTHOR="${{ github.actor }}"
+          REPO="${{ github.repository }}"
+          COMMIT_SHORT="${{ github.sha }}"
+          COMMIT_SHORT="${COMMIT_SHORT:0:7}"
+          COMMIT_URL="https://github.com/$REPO/commit/${{ github.sha }}"
+          
+          cat <<EOF > payload.json
+          {
+            "embeds": [{
+              "title": "$COMMIT_TITLE",
+              "description": "$COMMIT_BODY",
+              "color": 5814783,
+              "fields": [
+                {"name": "👤 Author", "value": "$AUTHOR", "inline": true},
+                {"name": "🔗 Commit", "value": "[\`$COMMIT_SHORT\`]($COMMIT_URL)", "inline": true}
+              ],
+              "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%S.000Z)"
+            }]
+          }
+          EOF
+          
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d @payload.json \
+               "$DISCORD_WEBHOOK"
