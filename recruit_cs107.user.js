@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Recruit - cs107
 // @author       Wwww
-// @version      2.6
+// @version      2.7
 // @updateURL    https://raw.githubusercontent.com/Wwwwscripts/cs107/main/recruit_cs107.meta.js
 // @downloadURL  https://raw.githubusercontent.com/Wwwwscripts/cs107/main/recruit_cs107.user.js
 // @match        https://*/game.php?*screen=train*
